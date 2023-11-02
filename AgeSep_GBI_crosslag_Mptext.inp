@@ -1,30 +1,31 @@
-
-Title: Cross-lagged regression between separation and GBI at ages 17 and 22;
-DATA: FILE IS For Mplus.dat;
-VARIABLE:  
-    NAMES ARE
-       famnb
-       sep17 sep22
-       diff17 diff22
-       edu1 edu2
-       sexzyg4 sexzyg5 sexzyg6 sexzyg7;
-   USEVARIABLES ARE
-       sep17 sep22 diff17 diff22
-       edu1 edu2
-       sexzyg4 sexzyg5 sexzyg6 sexzyg7;
-
+TITLE:
+ Cross-lagged regression between separation and GBI at ages 17 and 22;
+DATA:
+ FILE IS ForMplus.dat;
+VARIABLE:
+        NAMES ARE
+           famnb
+           sep17 sep22
+           diff17 diff22
+           eduf1 eduf2 eduf3
+           edum1 edum2 edum3
+           sexzyg4 sexzyg5 sexzyg6 sexzyg7;
+       USEVARIABLES ARE
+           sep17 sep22 diff17 diff22
+           eduf1 eduf2 eduf3
+           edum1 edum2 edum3
+           sexzyg4 sexzyg5 sexzyg6 sexzyg7;
 ANALYSIS:
-    ESTIMATOR = ML;
-MODEL:
-    sep22 on sep17 diff17;
-    diff22 on sep17 diff17;
-    diff17 with sep17;
-    diff22 with sep22;
-    sep22 on edu1 edu2 sexzyg4 sexzyg5 sexzyg6 sexzyg7;
-    sep17 on edu1 edu2 sexzyg4 sexzyg5 sexzyg6 sexzyg7;
-    diff22 on edu1 edu2 sexzyg4 sexzyg5 sexzyg6 sexzyg7;
-    diff17 on edu1 edu2 sexzyg4 sexzyg5 sexzyg6 sexzyg7;
-
+        ESTIMATOR = ML;
 OUTPUT:
-    CINTERVAL
+        CINTERVAL
+MODEL:
+        sep22 on sep17 diff17;
+        diff22 on sep17 diff17;
+        diff17 with sep17;
+        diff22 with sep22;
+        sep22 on sexzyg4 sexzyg5 sexzyg6 sexzyg7 eduf1 eduf2 eduf3 edum1 edum2 edum3;
+        sep17 on sexzyg4 sexzyg5 sexzyg6 sexzyg7 eduf1 eduf2 eduf3 edum1 edum2 edum3;
+        diff22 on sexzyg4 sexzyg5 sexzyg6 sexzyg7 eduf1 eduf2 eduf3 edum1 edum2 edum3;
+        diff17 on sexzyg4 sexzyg5 sexzyg6 sexzyg7 eduf1 eduf2 eduf3 edum1 edum2 edum3;
  
